@@ -1,0 +1,33 @@
+package com.velocity.Demo;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class InsertRecords_UsingPrepareStatement {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		// Step-01 Load driver class
+
+		Class.forName("com.mysql.jdbc.Driver");
+
+		System.out.println("Step-01 Completed");
+
+		// Step-02 Establish the connection
+
+		String url = "jdbc:mysql://localhost:3306/companydb?characterEncoding=utf8";
+		Connection connection = DriverManager.getConnection(url, "root", "root");
+		System.out.println("Step-02 Completed");
+
+		String sqlquery = "insert into company(cust_Name,designation) values (?,?);";
+		PreparedStatement prepare = connection.prepareStatement(sqlquery);
+		prepare.setString(1, "Santosh");
+		prepare.setString(2, "Devops");
+		System.out.println("Step-03 Completed");
+
+		int rowsAffected = prepare.executeUpdate();
+		System.out.println("Step04-Completed"+rowsAffected);
+
+	}
+}
+
