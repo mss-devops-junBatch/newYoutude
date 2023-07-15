@@ -1,2 +1,3 @@
+hello ,hope u r doing great
 The String ,Array are imp topics of java fundamentals..
 THIS IS A STRING CLASS WHICH CONTAINS FUNCTIONS OF STRING ND etc......
